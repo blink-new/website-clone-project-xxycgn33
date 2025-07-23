@@ -43,14 +43,40 @@ const HeroSection = () => (
   <section className="bg-cream text-center py-20 sm:py-28">
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-5xl font-semibold text-blue-300 sm:text-6xl font-sans leading-tight">
-        Cross Team Collaboration Just Got Easy
+        Your best people are not doing their actual jobs.
       </h1>
       <p className="mt-6 text-md text-gray-500 max-w-2xl mx-auto">
-        The one place for your team to plan, track, and manage any type of work. Envole gives your team a unified workspace to collaborate, communicate, and conquer any project.
+        In modern companies, cross-team workflows are broken. They are slow, siloed, and expensive. This isn't a small inconvenience; it's a massive drain on a company's ability to grow and innovate.
       </p>
     </div>
   </section>
 );
+
+const ProblemSection = () => (
+    <section className="bg-cream pb-20 sm:pb-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+                <h2 className="text-3xl font-semibold text-blue-200 sm:text-4xl font-sans">The High Cost of "Work About Work"</h2>
+                <p className="mt-4 text-md text-gray-500 max-w-3xl mx-auto">Modern collaboration still relies on constant manual effort. This creates a vicious cycle of "work about work" where your team is trapped managing tasks instead of executing them.</p>
+            </div>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <h3 className="text-2xl font-semibold text-blue-100">40%</h3>
+                    <p className="mt-2 text-gray-500">Of productive time lost to context switching between 9+ apps daily.</p>
+                </div>
+                <div>
+                    <h3 className="text-2xl font-semibold text-blue-100">1/4</h3>
+                    <p className="mt-2 text-gray-500">Of the workday is lost as team members manually hunt for information.</p>
+                </div>
+                <div>
+                    <h3 className="text-2xl font-semibold text-blue-100">$1000s</h3>
+                    <p className="mt-2 text-gray-500">Per employee lost to unproductive meetings and forced alignment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
 
 const TeamDashboardSection = () => (
   <section className="bg-cream pb-20 sm:pb-28">
@@ -85,28 +111,28 @@ const FeatureSection = ({ title, description, imageUrl, imageSide = 'right' }) =
 
 const features = [
   {
-    title: 'Dedicate & Customize',
-    description: 'Each team gets a dedicated AI Personal Assistant that connects to their specific tools (like Jira, Slack, Notion) and their knowledge bases (like Confluence, Google Drive).',
+    title: '1. Dedicate & Customize',
+    description: 'The process begins by dedicating a unique AI Personal Assistant (PA) to each team. This PA is then customized to the team\'s specific ecosystem by connecting directly to their essential tools (like Jira, Slack, Notion) and their knowledge bases (like Confluence and Google Drive). This creates a central intelligence hub that understands the team\'s unique context.',
     imageUrl: 'https://firebasestorage.googleapis.com/v0/b/blink-451505.firebasestorage.app/o/user-uploads%2FBK2Z6FZIdyOmb9ghp9hxSriBK8L2%2FCapturedecran2025-07-24a002417__1d132515.png?alt=media&token=c01b4e15-252a-45a9-a495-368b11e5766c',
   },
   {
-    title: 'Embed Everywhere',
-    description: 'The PA can be embedded anywhere the team already works; in meetings, emails, Slack, and WhatsApp, to bring intelligence directly into their existing workflows.',
-    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/blink-451505.firebasestorage.app/o/user-uploads%2FBK2Z6FZIdyOmb9ghp9hxSriBK8L2%2FCapturedecran2025-07-24a002421__256acda0.png?alt=media&token=5181b1b6-ceef-4f1e-9d30-ba3d204eda8c',
-  },
-  {
-    title: 'Self-Organize & Synchronize',
-    description: 'The Personal Assistant self-organizes team knowledge and data, keeping all connected systems synchronized automatically.',
+    title: '2. Self-Organize & Synchronize',
+    description: 'Once connected, the PA automatically self-organizes the team\'s scattered knowledge and data. It listens to conversations, tracks progress, and keeps all connected systems synchronized in real-time. This eliminates manual data entry and creates an always up-to-date single source of truth for the team.',
     imageUrl: 'https://firebasestorage.googleapis.com/v0/b/blink-451505.firebasestorage.app/o/user-uploads%2FBK2Z6FZIdyOmb9ghp9hxSriBK8L2%2FCapturedecran2025-07-24a002426__bf73f93c.png?alt=media&token=2d366a91-63c4-4299-94b2-e653c4748920',
   },
   {
-    title: 'Interact with Sub-Agents',
-    description: "The Team PA interacts with custom 'sub-agents' created by the team for granular tasks (e.g. content creation, PRD drafting).",
+    title: '3. Embed Everywhere',
+    description: 'PA’s can be embedded directly into the team\'s existing workflows. It operates within the tools they already use—attending meetings, being cc\'d on emails, and participating in Slack or WhatsApp—to deliver proactive summaries, create tasks, flag issues, and handle the daily "busy work" without requiring users to change their behavior.',
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/blink-451505.firebasestorage.app/o/user-uploads%2FBK2Z6FZIdyOmb9ghp9hxSriBK8L2%2FCapturedecran2025-07-24a002421__256acda0.png?alt=media&token=5181b1b6-ceef-4f1e-9d30-ba3d204eda8c',
+  },
+  {
+    title: '4. Interact with Sub-Agents',
+    description: 'Teams can further automate their work by creating specialized "sub-agents" for granular, repeatable tasks (e.g., a "content_creator" or a "prd_drafter"). The main Team PA is aware of these sub-agents and can delegate work to them, leveraging their outputs to provide deeper, more comprehensive insights.',
     imageUrl: 'https://firebasestorage.googleapis.com/v0/b/blink-451505.firebasestorage.app/o/user-uploads%2FBK2Z6FZIdyOmb9ghp9hxSriBK8L2%2FCapturedecran2025-07-24a002430__5eaa034f.png?alt=media&token=fe81b232-ef7e-4c9c-b334-b524033021a8',
   },
   {
-    title: 'Enable Cross-Team Collaboration',
-    description: 'This creates a single source of collaboration, allowing different Team PAs to communicate with each other (e.g. @product calling @legal) to break down silos.',
+    title: '5. Enable Cross-Team Collaboration',
+    description: 'True business velocity is unlocked when PAs communicate. This system creates a single source of collaboration, allowing one team\'s PA to call another (e.g., @product asking @legal for an approval) to get instant expertise, action items, and data, effectively dismantling the silos that slow companies down.',
     imageUrl: 'https://firebasestorage.googleapis.com/v0/b/blink-451505.firebasestorage.app/o/user-uploads%2FBK2Z6FZIdyOmb9ghp9hxSriBK8L2%2FCapturedecran2025-07-24a002435__8fc9421f.png?alt=media&token=2e354222-0a75-4384-a0df-6e6ba2a6b298',
   }
 ];
@@ -157,7 +183,7 @@ const TeamPersonalAssistantsSection = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-semibold text-blue-200 sm:text-4xl font-sans">
-            Team Personal Assistants to Keep Your Teams Organized and Synchronized
+            A True Collaborative Brain for Your Organization
           </h2>
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -212,7 +238,7 @@ const CallToActionBanner = () => {
           style={{ scale }}
           className="bg-gradient-to-r from-blue-200 to-orange text-white rounded-2xl p-12 text-center"
         >
-          <h2 className="text-4xl font-semibold">Keep your teams organized</h2>
+          <h2 className="text-4xl font-semibold">Stop the "Work About Work". Start Innovating.</h2>
           <div className="mt-8">
             <DialogTrigger asChild>
               <button className="bg-white text-blue-200 font-semibold py-3 px-6 rounded-lg text-md hover:bg-opacity-90 transition">
@@ -271,12 +297,23 @@ const Footer = () => (
   </footer>
 );
 
+const SolutionIntro = () => (
+    <section className="bg-cream py-20 sm:py-28 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold text-blue-200 sm:text-4xl font-sans">The Solution: The First AI Personal Assistants for Teams</h2>
+            <p className="mt-6 text-md text-gray-500 max-w-3xl mx-auto">Envole provides the first AI personal assistants for teams that are designed to automate "work about work." These assistants work together, self-organize, and automatically keep teams aligned, acting as a true collaborative brain for the organization.</p>
+        </div>
+    </section>
+);
+
 function App() {
   return (
     <Dialog>
       <div className="bg-cream min-h-screen font-sans text-black-100">
         <Header />
         <HeroSection />
+        <ProblemSection />
+        <SolutionIntro />
         <TeamDashboardSection />
         <main>
           {features.map((feature, index) => (
