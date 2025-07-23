@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Dialog,
   DialogContent,
@@ -10,6 +10,7 @@ import {
 } from './components/ui/dialog';
 import { Input } from './components/ui/input';
 import { Button } from './components/ui/button';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Header = () => (
   <header className="bg-cream py-4">
@@ -41,7 +42,7 @@ const Header = () => (
 const HeroSection = () => (
   <section className="bg-cream text-center py-20 sm:py-28">
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-5xl font-bold text-blue-300 sm:text-6xl font-sans leading-tight">
+      <h1 className="text-5xl font-semibold text-blue-300 sm:text-6xl font-sans leading-tight">
         Cross Team Collaboration Just Got Easy
       </h1>
       <p className="mt-6 text-md text-gray-500 max-w-2xl mx-auto">
@@ -71,7 +72,7 @@ const FeatureSection = ({ title, description, imageUrl, imageSide = 'right' }) =
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center`}>
         <div className={`${imageSide === 'left' ? 'md:order-last' : ''}`}>
-          <h3 className="text-3xl font-bold font-sans text-blue-200">{title}</h3>
+          <h3 className="text-3xl font-semibold font-sans text-blue-200">{title}</h3>
           <p className="mt-4 text-md text-gray-500">{description}</p>
         </div>
         <div className="mt-10 md:mt-0">
@@ -155,7 +156,7 @@ const TeamPersonalAssistantsSection = () => {
     <section className="bg-cream py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-blue-200 sm:text-5xl font-sans">
+          <h2 className="text-3xl font-semibold text-blue-200 sm:text-4xl font-sans">
             Team Personal Assistants to Keep Your Teams Organized and Synchronized
           </h2>
         </div>
@@ -164,7 +165,7 @@ const TeamPersonalAssistantsSection = () => {
             <div key={feature.title} className="bg-white p-8 rounded-xl border border-gray-90">
               <div className="flex items-center space-x-4">
                 {feature.icon}
-                <h3 className="text-xl font-bold text-blue-200">{feature.title}</h3>
+                <h3 className="text-xl font-semibold text-blue-200">{feature.title}</h3>
               </div>
               <p className="mt-4 text-md text-gray-500">{feature.description}</p>
             </div>
@@ -175,22 +176,55 @@ const TeamPersonalAssistantsSection = () => {
   );
 };
 
-const CallToActionBanner = () => (
-  <section className="bg-cream py-16">
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-gradient-to-r from-blue-200 to-orange text-white rounded-2xl p-12 text-center">
-        <h2 className="text-4xl font-bold">Keep your teams organized</h2>
-        <div className="mt-8">
-          <DialogTrigger asChild>
-            <button className="bg-white text-blue-200 font-semibold py-3 px-6 rounded-lg text-md hover:bg-opacity-90 transition">
-              Join Waitlist
-            </button>
-          </DialogTrigger>
-        </div>
+const IntegrationsSection = () => (
+  <section className="bg-cream py-16 sm:py-20">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center">
+        <p className="font-semibold text-orange">Integrations</p>
+        <h2 className="mt-2 text-3xl font-semibold text-blue-200 sm:text-4xl">Connect with Your Favorite Tools</h2>
+        <p className="mt-4 text-md text-gray-500">Envole integrates with the tools your team already uses, so you can keep your workflow seamless.</p>
+      </div>
+      <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center">
+        <img src="https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg" alt="Slack" className="h-12 mx-auto" />
+        <img src="https://cdn.worldvectorlogo.com/logos/notion-1.svg" alt="Notion" className="h-12 mx-auto" />
+        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" alt="GitHub" className="h-12 mx-auto" />
+        <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma" className="h-12 mx-auto" />
+        <img src="https://cdn.worldvectorlogo.com/logos/google-drive.svg" alt="Google Drive" className="h-12 mx-auto" />
       </div>
     </div>
   </section>
 );
+
+
+const CallToActionBanner = () => {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+
+  return (
+    <section className="bg-cream py-20 sm:py-32" ref={ref}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          style={{ scale }}
+          className="bg-gradient-to-r from-blue-200 to-orange text-white rounded-2xl p-12 text-center"
+        >
+          <h2 className="text-4xl font-semibold">Keep your teams organized</h2>
+          <div className="mt-8">
+            <DialogTrigger asChild>
+              <button className="bg-white text-blue-200 font-semibold py-3 px-6 rounded-lg text-md hover:bg-opacity-90 transition">
+                Join Waitlist
+              </button>
+            </DialogTrigger>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="bg-cream border-t border-gray-90">
@@ -250,6 +284,7 @@ function App() {
           ))}
         </main>
         <TeamPersonalAssistantsSection />
+        <IntegrationsSection />
         <CallToActionBanner />
         <Footer />
       </div>
