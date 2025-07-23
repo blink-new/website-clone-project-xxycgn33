@@ -98,27 +98,63 @@ const features = [
   }
 ];
 
-const IntegrationsSection = () => {
-  const integrations = [
-    { name: 'Jira', logo: 'https://cdn.worldvectorlogo.com/logos/jira-1.svg' },
-    { name: 'Slack', logo: 'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg' },
-    { name: 'Notion', logo: 'https://cdn.worldvectorlogo.com/logos/notion-1.svg' },
-    { name: 'GitHub', logo: 'https://cdn.worldvectorlogo.com/logos/github-icon-1.svg' },
-    { name: 'Figma', logo: 'https://cdn.worldvectorlogo.com/logos/figma-1.svg' },
-    { name: 'Linear', logo: 'https://cdn.worldvectorlogo.com/logos/linear-1.svg' },
+const TeamPersonalAssistantsSection = () => {
+  const assistantFeatures = [
+    {
+      title: 'Knowledge Base',
+      description: 'Empower your AI Personal Assistants by seamlessly connecting them to your organization’s entire knowledge base. Ensure accurate, context-aware interactions that leverage all your internal data.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.25278V19.2528M12 6.25278C10.8321 5.47496 9.2464 5.60155 8.21447 6.50831C7.18254 7.41508 6.93589 8.89979 7.59327 10.0248C8.25064 11.1498 9.58338 11.685 10.8333 11.2528" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.25278V19.2528M12 6.25278C13.1679 5.47496 14.7536 5.60155 15.7855 6.50831C16.8175 7.41508 17.0641 8.89979 16.4067 10.0248C15.7494 11.1498 14.4166 11.685 13.1667 11.2528" />
+        </svg>
+      ),
+    },
+    {
+      title: 'No Code Required',
+      description: 'Build powerful AI solutions with ease using our intuitive no-code platform. Design custom workflows and integrate with existing systems through a simple drag-and-drop interface, no coding required.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h3m-3 4h3m-3 4h3M7 20h10a2 2 0 002-2V6a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Pre-built Use Cases',
+      description: 'Accelerate your AI initiatives with a rich library of pre-built templates and use cases. Adapt them to your specific team workflows and achieve immediate impact, designed for real-world scenarios.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Integrations',
+      description: 'Unify your entire tech stack by connecting Envole with all your essential tools—from CRMs to communication platforms. Create seamless, integrated workflows that break down data silos.',
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
-    <section className="bg-cream py-16 sm:py-24">
+    <section className="bg-cream py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-blue-200">Works with your existing tools</h2>
-          <p className="mt-2 text-md text-gray-500">Envole connects with the tools your team already uses, making it a seamless addition to your workflow.</p>
+          <h2 className="text-4xl font-bold text-blue-200 sm:text-5xl font-sans">
+            Team Personal Assistants to Keep Your Teams Organized and Synchronized
+          </h2>
         </div>
-        <div className="mt-12 flex justify-center items-center flex-wrap gap-x-8 gap-y-6">
-          {integrations.map((integration) => (
-            <div key={integration.name} className="flex justify-center items-center p-4">
-              <img src={integration.logo} alt={integration.name} className="h-10" />
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {assistantFeatures.map((feature) => (
+            <div key={feature.title} className="bg-white p-8 rounded-xl border border-gray-90">
+              <div className="flex items-center space-x-4">
+                {feature.icon}
+                <h3 className="text-xl font-bold text-blue-200">{feature.title}</h3>
+              </div>
+              <p className="mt-4 text-md text-gray-500">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -127,28 +163,65 @@ const IntegrationsSection = () => {
   );
 };
 
+const CallToActionBanner = () => (
+  <section className="bg-cream py-16">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-r from-blue-200 to-orange text-white rounded-2xl p-12 text-center">
+        <h2 className="text-4xl font-bold">Keep your teams organized</h2>
+        <div className="mt-8">
+          <button className="bg-white text-blue-200 font-semibold py-3 px-6 rounded-lg text-md hover:bg-opacity-90 transition">
+            Join Waitlist
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Footer = () => (
-  <footer className="bg-cream">
+  <footer className="bg-cream border-t border-gray-90">
     <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between items-center">
-        <p className="text-sm text-gray-400">&copy; 2025 Envole, Inc. All rights reserved.</p>
-        <div className="flex space-x-6">
-          <a href="#" className="text-gray-400 hover:text-blue-100 transition">
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div className="flex items-center space-x-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#053146" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="#053146" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="#053146" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-blue-100 transition">
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.019c0 4.438 2.865 8.229 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.019C22 6.477 17.523 2 12 2z" clipRule="evenodd" />
-            </svg>
-          </a>
+            <span className="font-semibold text-lg text-blue-200">Envole</span>
+          </div>
+          <p className="mt-4 text-sm text-gray-500">2261 Market Street STE 10154<br/>San Francisco, CA 94114</p>
+          <p className="mt-8 text-sm text-gray-400">&copy;2025 Envole, Inc. All rights reserved.</p>
+        </div>
+        <div>
+          <h3 className="text-md font-semibold text-blue-200">Legal</h3>
+          <ul className="mt-4 space-y-2">
+            <li><a href="#" className="text-sm text-gray-500 hover:text-blue-100">Terms & Conditions</a></li>
+            <li><a href="#" className="text-sm text-gray-500 hover:text-blue-100">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-md font-semibold text-blue-200">Stay up to date</h3>
+          <p className="mt-4 text-sm text-gray-500">Get the latest product updates</p>
+          <form className="mt-4 flex">
+            <input type="email" placeholder="jane@envole.ai" className="w-full px-4 py-2 text-sm border border-gray-300 rounded-l-md focus:ring-orange focus:border-orange" />
+            <button type="submit" className="bg-orange text-white px-4 py-2 rounded-r-md text-sm font-semibold hover:bg-opacity-90">Submit</button>
+          </form>
+        </div>
+        <div className="flex items-end justify-between flex-col">
+            <div></div>
+            <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-blue-100">@envole</a>
+                <a href="#" className="text-gray-400 hover:text-blue-100">
+                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 21v-7h2v7h-2zm-8 0v-9h2v9h-2zm-8 0v-4h2v4H4zm1-11h2v2H5v-2zm8-2h2v4h-2v-4zm-3-2h2v6h-2V6zM9 4h2v8H9V4zM3 2h18v2H3V2z"/></svg>
+                </a>
+            </div>
         </div>
       </div>
     </div>
   </footer>
 );
-
 
 function App() {
   return (
@@ -161,7 +234,8 @@ function App() {
           <FeatureSection key={index} {...feature} imageSide={index % 2 === 0 ? 'right' : 'left'} />
         ))}
       </main>
-      <IntegrationsSection />
+      <TeamPersonalAssistantsSection />
+      <CallToActionBanner />
       <Footer />
     </div>
   );
