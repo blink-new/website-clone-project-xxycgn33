@@ -1,5 +1,15 @@
-
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from './components/ui/dialog';
+import { Input } from './components/ui/input';
+import { Button } from './components/ui/button';
 
 const Header = () => (
   <header className="bg-cream py-4">
@@ -14,9 +24,11 @@ const Header = () => (
           <span className="font-semibold text-lg text-blue-200">Envole</span>
         </div>
         <div className="flex items-center space-x-4">
-          <button className="bg-blue-100 text-white font-semibold py-2 px-5 rounded-lg text-sm hover:bg-opacity-90 transition">
-            Join Waitlist
-          </button>
+          <DialogTrigger asChild>
+            <button className="bg-blue-100 text-white font-semibold py-2 px-5 rounded-lg text-sm hover:bg-opacity-90 transition">
+              Join Waitlist
+            </button>
+          </DialogTrigger>
           <button className="bg-gray-90 text-blue-200 font-semibold py-2 px-5 rounded-lg text-sm hover:bg-gray-100 transition">
             Talk to a Founder
           </button>
@@ -169,9 +181,11 @@ const CallToActionBanner = () => (
       <div className="bg-gradient-to-r from-blue-200 to-orange text-white rounded-2xl p-12 text-center">
         <h2 className="text-4xl font-bold">Keep your teams organized</h2>
         <div className="mt-8">
-          <button className="bg-white text-blue-200 font-semibold py-3 px-6 rounded-lg text-md hover:bg-opacity-90 transition">
-            Join Waitlist
-          </button>
+          <DialogTrigger asChild>
+            <button className="bg-white text-blue-200 font-semibold py-3 px-6 rounded-lg text-md hover:bg-opacity-90 transition">
+              Join Waitlist
+            </button>
+          </DialogTrigger>
         </div>
       </div>
     </div>
@@ -225,19 +239,42 @@ const Footer = () => (
 
 function App() {
   return (
-    <div className="bg-cream min-h-screen font-sans text-black-100">
-      <Header />
-      <HeroSection />
-      <TeamDashboardSection />
-      <main>
-        {features.map((feature, index) => (
-          <FeatureSection key={index} {...feature} imageSide={index % 2 === 0 ? 'right' : 'left'} />
-        ))}
-      </main>
-      <TeamPersonalAssistantsSection />
-      <CallToActionBanner />
-      <Footer />
-    </div>
+    <Dialog>
+      <div className="bg-cream min-h-screen font-sans text-black-100">
+        <Header />
+        <HeroSection />
+        <TeamDashboardSection />
+        <main>
+          {features.map((feature, index) => (
+            <FeatureSection key={index} {...feature} imageSide={index % 2 === 0 ? 'right' : 'left'} />
+          ))}
+        </main>
+        <TeamPersonalAssistantsSection />
+        <CallToActionBanner />
+        <Footer />
+      </div>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Join the Waitlist</DialogTitle>
+          <DialogDescription>
+            Be the first to know when Envole is available. We'll email you when we're ready.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Input
+              id="email"
+              defaultValue="jane.doe@example.com"
+              className="col-span-4"
+              placeholder="Your email address"
+            />
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit" className="w-full bg-blue-100 hover:bg-blue-100/90">Join Waitlist</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }
 
